@@ -1,0 +1,12 @@
+{
+  "name": true,
+  "passport": true,
+  "from": false,
+  "to": false,
+  "date1": true,
+  "date2": true,
+  "flight": true,
+  "seat": true,
+  "price": true,
+  "card": true
+}
