@@ -142,6 +142,7 @@ if option == 1:
     for i in final_data:
         file_writer.writerow(i.split(";"))
     file_output.close()
+    print("Датасет обезличен!")
 else:
     file_data = [i for i in file_data if i != "\n"]
     duplicates_list = [i[1] for i in k_anon(file_data)[:5]]
@@ -151,4 +152,10 @@ else:
         k = 7
     else:
         k = 5
-    print(duplicates_list)
+    duplicates_list = [i for i in duplicates_list if i < k]
+    if duplicates_list:
+        print(f"Худшие k-анонимити (k меньше {k}):")
+        for i in duplicates_list:
+            print(i, "-", i / len(file_data) * 100, "%")
+    else:
+        print("Плохих K-анонимити нету!")
